@@ -144,7 +144,7 @@ cd devsecops_vm
   vagrant destroy
   ```
 
-- Updating the Box version
+- Updating the Box version (Data on the Virtual machine will be deleted)
   ```bash
   vagrant box update
   ```
