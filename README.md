@@ -84,9 +84,16 @@ cd devsecops_vm
 
 ### Starting the Vagrant Box
 1.  Start Vagrant, the following command will download the Box from the vagrant hub (about 9.0 GB):
-  ```bash
-  vagrant up
-  ```
+
+  - For Virtualbox Users (on AMD64):
+    ```bash
+    vagrant up --provider=virtualbox
+    ```
+
+  - For Vmware Users (on ARM64):
+    ```bash
+    vagrant up --provider=vmware_desktop
+    ```
 
 1.  When Vagrant finishes downloading the file, it will create the Virtual Machine and start configuring it.
 
