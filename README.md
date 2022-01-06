@@ -44,28 +44,33 @@
 1.  Install Virtualbox, please follow the instructions based on your computer's operating system.
   [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 
-1.  (Restart might be needed) Install Vagrant, please follow the instructions based on your computer's operating system.
+2.  (Restart might be needed) Install Vagrant, please follow the instructions based on your computer's operating system.
   [https://www.vagrantup.com/docs/installation](https://www.vagrantup.com/docs/installation)
+
+### Pre-requisites  Vmware Users (on ARM64 - MAC M1):
+1.  Install Vmware Fusion [https://www.vmware.com/uk/products/fusion/fusion-evaluation.html](https://www.vmware.com/uk/products/fusion/fusion-evaluation.html)
+
+2.  Install Vagrant Vmware Utility [https://www.vagrantup.com/vmware/downloads](https://www.vagrantup.com/vmware/downloads)
 
 ### Retrieving & Configuring the Vagrant Box
 1.  Open a Command Shell on your computer.
 
-1.  Make sure that vagrant is working on your computer:
+2.  Make sure that vagrant is working on your computer:
   ```bash
   vagrant -v
   ```
 
-1.  Clone this repository on your host machine:
+3.  Clone this repository on your host machine:
 ```bash
 git clone https://github.com/oabuoun/devsecops_vm.git
 ```
 
-1.  cd into the folder
+4.  cd into the folder
 ```bash
 cd devsecops_vm
 ```
 
-1.  (Optional) Edit the file ***Vagrantfile*** to choose the CPU cores and amount of memory you want to assign for the Virtual Machine that will be created.
+5.  (Optional) Edit the file ***Vagrantfile*** to choose the CPU cores and amount of memory you want to assign for the Virtual Machine that will be created.
 
   These are the default values, you can change them based on the resources you have on your machine.
 
@@ -74,9 +79,9 @@ cd devsecops_vm
   vb.cpus = 4
   ```
 
-1.  Vagrant will share your current directory with the virtual machine on ***/vagrant***
+6.  Vagrant will share your current directory with the virtual machine on ***/vagrant***
 
-1.  The following line in the configuration will also share your current Home directory with the Virtual Machine on ***/home/vagrant/host***
+7.  The following line in the configuration will also share your current Home directory with the Virtual Machine on ***/home/vagrant/host***
 
   ```bash
   config.vm.synced_folder "#{Dir.home}", "/home/vagrant/host", type: "virtualbox"
@@ -90,12 +95,14 @@ cd devsecops_vm
     vagrant up --provider=virtualbox
     ```
 
-  - For Vmware Users (on ARM64):
+  - For Vmware Users (on ARM64 - MAC M1):
     ```bash
+    vagrant plugin install vagrant-vmware-desktop
+    
     vagrant up --provider=vmware_desktop
     ```
 
-1.  When Vagrant finishes downloading the file, it will create the Virtual Machine and start configuring it.
+2.  When Vagrant finishes downloading the file, it will create the Virtual Machine and start configuring it.
 
   It's recommended to wait for all configuration to be done before start working with the Virtual machine.
 
